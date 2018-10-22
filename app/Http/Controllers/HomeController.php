@@ -29,7 +29,11 @@ class HomeController extends Controller
         return view('home');
     }
     public function profile()
-    {   $users = User::all();
+    {
+        $user = User::find(2);
+        $user->delete();
+
+        $users = User::all();
         return view('profile', ['users' => $users]);
     }
 
